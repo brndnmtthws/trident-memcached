@@ -62,13 +62,13 @@ public class MemcachedState<T> implements IBackingMap<T> {
         public Serializer<T> serializer = null;
         public long expiration = 0;
         public int requestRetries = 2;         // max number of retries after the first failure.
-        public int connectTimeoutMillis = 200; // tcp connection timeout.
-        public int requestTimeoutMillis = 50;  // request timeout.
+        public int connectTimeoutMillis = 2000; // tcp connection timeout.
+        public int requestTimeoutMillis = 500;  // request timeout.
         public int e2eTimeoutMillis = 500;     // end-to-end request timeout.
         public int hostConnectionLimit = 10;   // concurrent connections to one server.
         public int maxWaiters = 2;             // max waiters in the request queue.
         public int maxMultiGetBatchSize = 100;
-    }  
+    }
 
     public static StateFactory opaque(List<InetSocketAddress> servers) {
         return opaque(servers, new Options());
